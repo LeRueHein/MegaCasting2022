@@ -1,0 +1,60 @@
+﻿<mah:MetroWindow x:Class="MegaCasting.WPFClient.MainWindow"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MegaCasting.WPFClient"
+        xmlns:view="clr-namespace:MegaCasting.WPFClient.Views"
+        mc:Ignorable="d"
+        Title="MegaCasting" 
+        Height="800" 
+        Width="1200" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120pt"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70pt"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="Purple" Grid.RowSpan="2">
+            <Button Height="50" Name="ButtonHome" Foreground="BurlyWood" Click="ButtonHome_Click" Margin="5pt">
+                <StackPanel>
+                    <!--<materialDesign:PackIcon Kind="Home"
+                                             HorizontalAlignment="Center"
+                                             Width="40"
+                                             Height="40"/>-->
+                    <Label FontSize="12" FontWeight="Bold" Foreground="Black" Content="Accueil"/> 
+                </StackPanel>
+            </Button>
+            <Button Height="50" Name="ButtonOffer" Foreground="BurlyWood" Click="ButtonOffer_Click" Margin="5pt">
+                <StackPanel>
+                    <!--<materialDesign:PackIcon Kind="Offer"
+                                             HorizontalAlignment="Center"
+                                             Width="40"
+                                             Height="40" />-->
+                    <Label FontSize="12" FontWeight="Bold" Foreground="Black" Content="Offre"/>
+                </StackPanel>
+            </Button>
+            <Button Height="50" Name="ButtonPartner" Foreground="BurlyWood" Click="ButtonPartner_Click" Margin="5pt">
+                <Label FontSize="12" FontWeight="Bold" Foreground="Black" Content="Partenaire"/>
+            </Button>
+            <Button Height="50" Name="ButtonClient" Foreground="BurlyWood" Click="ButtonClient_Click" Margin="5pt">
+                <Label FontSize="12" FontWeight="Bold" Foreground="Black" Content="Client"/>
+            </Button>
+        </StackPanel>
+
+        <DockPanel x:Name="DockPanelView"
+                   Grid.Column="2"
+                   Grid.RowSpan="2">
+            <view:HomeView/>
+        </DockPanel>
+        
+    </Grid>
+</mah:MetroWindow>
+                                            

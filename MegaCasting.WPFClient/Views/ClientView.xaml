@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="MegaCasting.WPFClient.Views.ClientView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MegaCasting.WPFClient.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <!-- Affiches les partenaires-->
+
+    <Grid Background="MediumPurple">
+        <Grid>
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="Expander">
+                        <Style.Resources>
+                            <LinearGradientBrush x:Key="BackBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="MediumPurple" Offset="0.1" />
+                                <GradientStop Color="MediumPurple" Offset="0.9" />
+                            </LinearGradientBrush>
+                        </Style.Resources>
+                        <Setter Property="Background" Value="{StaticResource BackBrush}"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Text="Les Clients"></TextBlock>
+                    <DataGrid
+                     Margin="15"
+                     Height="250"
+                     Background="Transparent" 
+                     Name="DatagridClient"
+                     ItemsSource="{Binding Clients}"
+                     SelectedItem="{Binding SelectedClient}"
+                     DisplayMemberPath="Name"
+                     AutoGenerateColumns="False"
+                     RowBackground="Transparent"
+                     GridLinesVisibility="All"
+                     HorizontalGridLinesBrush="Black"
+                     VerticalGridLinesBrush="Black">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="100"/>
+                            <DataGridTextColumn Header="Téléphone" Binding="{Binding Telephone}" Width="100"/>
+                            <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="200"/>
+                            <DataGridTextColumn Header="Ville" Binding="{Binding Ville}" Width="110"/>
+                        </DataGrid.Columns>
+
+
+                    </DataGrid>
+                    <TextBlock Background="DarkGray"></TextBlock>
+
+                    <!-- Pour modif et supp -->
+                    <Expander>
+                        <Expander.Header>
+                            <StackPanel >
+                                <Border Height="5" Width="5" Background="MediumPurple"/>
+                                <TextBlock>MODIFIER SUPPRIMER</TextBlock>
+
+                            </StackPanel>
+                        </Expander.Header>
+                        <StackPanel Orientation="Vertical" Margin="15">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Nom" Style="{StaticResource LabelCustomStyle}"/>
+                                <TextBox Width="100" Text="{Binding SelectedClient.Nom}"/>
+                                <Label Content="Téléphone" Style="{StaticResource LabelCustomStyle}"/>
+                                <TextBox Width="100" Text="{Binding SelectedClient.Telephone}"/>
+                                <Label Content="Email" Style="{StaticResource LabelCustomStyle}"/>
+                                <TextBox Width="100" Text="{Binding SelectedClient.Email}"/>
+                                <Label Content="Ville" Style="{StaticResource LabelCustomStyle}"/>
+                                <TextBox Width="100" Text="{Binding SelectedClient.Ville}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Height="25" x:Name="SaveClient" Click="SaveClient_Click" Content="Sauvegarder" Margin="5"/>
+                                <Button Height="25" x:Name="DeleteClient" Click="DeleteClient_Click" Content="Supprimer" Margin="5"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Expander>
+
+
+                    <!-- Pour ajouter -->
+                    <TextBlock Background="DarkGray"></TextBlock>
+                    <Label Content="Ajouter un client" HorizontalAlignment="Center"></Label>
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <Label Content="Nom"/>
+                        <TextBox Width="100" x:Name="Nom" Text="{Binding ClientToAdd.Nom}" TextChanged="Nom_TextChanged"></TextBox>
+                        <Label Content="Téléphone"/>
+                        <TextBox Width="100" x:Name="Telephone" Text="{Binding ClientToAdd.Telephone}" TextChanged="Telephone_TextChanged"></TextBox>
+                        <Label Content="Email"/>
+                        <TextBox Width="100" x:Name="Email" Text="{Binding ClientToAdd.Email}" TextChanged="Email_TextChanged"></TextBox>
+                        <Label Content="Ville"/>
+                        <TextBox Width="100" x:Name="Ville" Text="{Binding ClientToAdd.Ville}" TextChanged="Ville_TextChanged"></TextBox>
+                    </StackPanel>
+                    <Button x:Name="AddClient" Click="AddClient_Click" Content="Ajouter le client" Width="200" Height="40" Margin="15" HorizontalAlignment="Left" IsEnabled="False"></Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

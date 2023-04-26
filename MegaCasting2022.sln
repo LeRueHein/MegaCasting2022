@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MegaCasting2022.Pgr", "MegaCasting2022.Pgr\MegaCasting2022.Pgr.csproj", "{51EF9F45-0CD3-4821-9FA4-85BBB4A23091}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MegaCasting2022.DBLib", "MegaCasting2022.DBLib\MegaCasting2022.DBLib.csproj", "{C93EF3DC-1786-4624-B5DC-0B91202FE13A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MegaCasting2022.WPF", "MegaCasting2022.WPF\MegaCasting2022.WPF.csproj", "{B10BB27D-98A1-4D2D-BA7E-37FC600E86DB}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MegaCasting2022.DB", "MegaCasting2022.DB\MegaCasting2022.DB.sqlproj", "{91B45F34-8788-49C6-B8C5-E9E95AD376E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCasting.WPFClient", "MegaCasting.WPFClient\MegaCasting.WPFClient.csproj", "{9970F25F-5E7B-4FF9-A0E6-CA4F92494D23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51EF9F45-0CD3-4821-9FA4-85BBB4A23091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51EF9F45-0CD3-4821-9FA4-85BBB4A23091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51EF9F45-0CD3-4821-9FA4-85BBB4A23091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51EF9F45-0CD3-4821-9FA4-85BBB4A23091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C93EF3DC-1786-4624-B5DC-0B91202FE13A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C93EF3DC-1786-4624-B5DC-0B91202FE13A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C93EF3DC-1786-4624-B5DC-0B91202FE13A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C93EF3DC-1786-4624-B5DC-0B91202FE13A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B10BB27D-98A1-4D2D-BA7E-37FC600E86DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B10BB27D-98A1-4D2D-BA7E-37FC600E86DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B10BB27D-98A1-4D2D-BA7E-37FC600E86DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B10BB27D-98A1-4D2D-BA7E-37FC600E86DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91B45F34-8788-49C6-B8C5-E9E95AD376E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91B45F34-8788-49C6-B8C5-E9E95AD376E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91B45F34-8788-49C6-B8C5-E9E95AD376E9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{91B45F34-8788-49C6-B8C5-E9E95AD376E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91B45F34-8788-49C6-B8C5-E9E95AD376E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91B45F34-8788-49C6-B8C5-E9E95AD376E9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9970F25F-5E7B-4FF9-A0E6-CA4F92494D23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9970F25F-5E7B-4FF9-A0E6-CA4F92494D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9970F25F-5E7B-4FF9-A0E6-CA4F92494D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9970F25F-5E7B-4FF9-A0E6-CA4F92494D23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D517F8E5-07B7-4C1D-9CC3-59BC364C7827}
+	EndGlobalSection
+EndGlobal

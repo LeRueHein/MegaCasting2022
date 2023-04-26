@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="MegaCasting.WPFClient.Views.OfferView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MegaCasting.WPFClient.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <!-- Affiche les partenaires-->
+    <Grid Background="MediumPurple">
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="Expander">
+                    <Style.Resources>
+                        <LinearGradientBrush x:Key="BackBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="MediumPurple" Offset="0.1" />
+                            <GradientStop Color="MediumPurple" Offset="0.9" />
+                        </LinearGradientBrush>
+                    </Style.Resources>
+                    <Setter Property="Background" Value="{StaticResource BackBrush}"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Text="Les offres de casting"></TextBlock>
+            <DataGrid
+                     Height="250"
+                     Margin="15"
+                     Name="DatagridOffreCasting"
+                     Background="Transparent"  
+                     ItemsSource="{Binding OffreCastings}"
+                     SelectedItem="{Binding SelectedOffreCasting}"
+                     DisplayMemberPath="Name"
+                     AutoGenerateColumns="false"
+                     RowBackground="Transparent"
+                     GridLinesVisibility="All"
+                     HorizontalGridLinesBrush="Black"
+                     VerticalGridLinesBrush="Black">
+               
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Label" Binding="{Binding Libel}" Width="SizeToHeader"/>
+                    <DataGridTextColumn Header="Référence" Binding="{Binding Reference}" Width="SizeToHeader"/>
+                    <DataGridTextColumn Header="Date de publication" Binding="{Binding ParutionDateTime}" Width="SizeToHeader"/>
+                    <DataGridTextColumn Header="Date de début" Binding="{Binding OffreDateStart}" Width="SizeToHeader"/>
+                    <DataGridTextColumn Header="Date de fin" Binding="{Binding OffreDateEnd}" Width="SizeToHeader"/>
+                    <DataGridTextColumn Header="Localisation" Binding="{Binding Localisation}" Width="SizeToHeader"/>
+                    <DataGridTextColumn Header="Type de contrat" Binding="{Binding IdentifiantTypeContratNavigation.Libel}" Width="SizeToHeader"/>
+                    <DataGridTextColumn Header="Nom du client" Binding="{Binding IdentifiantClientNavigation.Nom}" Width="SizeToHeader"/>
+                    <DataGridTextColumn Header="Nom du client" Binding="{Binding Metiers}" Width="SizeToHeader"/>
+                  
+                </DataGrid.Columns>
+                
+                
+                
+            </DataGrid>
+            <TextBlock Background="DarkGray"></TextBlock>
+
+            <!-- Pour modif et supp -->
+            
+            <Expander  Background="MediumPurple">
+                
+                <Expander.Header>
+                    <StackPanel >
+                        <Border Height="5" Width="5" Background="MediumPurple"/>
+                        <TextBlock>MODIFIER SUPPRIMER</TextBlock>
+                        
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <Label Content="Label" Style="{StaticResource LabelCustomStyle}" />
+                        <TextBox Width="100" Text="{Binding SelectedOffreCasting.Libel}" />
+                        <Label Content="Référence" Style="{StaticResource LabelCustomStyle}" />
+                        <TextBox Width="100" Text="{Binding SelectedOffreCasting.Reference}" />
+                        <Label Content="Localisation" Style="{StaticResource LabelCustomStyle}" />
+                        <TextBox Width="100" Text="{Binding SelectedOffreCasting.Localisation}" />
+                        <Label Content="Date de début" Style="{StaticResource LabelCustomStyle}" />
+                        <DatePicker DisplayDateEnd="{Binding OffreCastingToAdd.OffreDateEnd}" SelectedDateFormat="short" Width="100" SelectedDate="{Binding SelectedOffreCasting.OffreDateStart}"></DatePicker>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <Label Content="Date de publication" Style="{StaticResource LabelCustomStyle}" />
+                        <DatePicker SelectedDateFormat="short" Width="100" SelectedDate="{Binding SelectedOffreCasting.ParutionDateTime}"></DatePicker>
+                        <Label Content="Date de fin" Style="{StaticResource LabelCustomStyle}" />
+                        <DatePicker DisplayDateStart="{Binding OffreCastingToAdd.OffreDateStart}" SelectedDateFormat="short" Width="100" SelectedDate="{Binding SelectedOffreCasting.OffreDateEnd}"></DatePicker>
+                        <Label Content="Client" Style="{StaticResource LabelCustomStyle}" />
+                        <ComboBox Width="100" ItemsSource="{Binding Clients}" DisplayMemberPath="Nom" SelectedItem="{Binding SelectedOffreCasting.IdentifiantClientNavigation}" />
+                        <Label Content="Type de contrat" Style="{StaticResource LabelCustomStyle}" />
+                        <ComboBox Width="100" ItemsSource="{Binding TypeContrats}" DisplayMemberPath="Libel" SelectedItem="{Binding SelectedOffreCasting.IdentifiantTypeContratNavigation}" />
+                        <Label Content="Métier" Style="{StaticResource LabelCustomStyle}" />
+                        <ComboBox Width="100" ItemsSource="{Binding Metiers}" DisplayMemberPath="Libel" SelectedItem="{Binding SelectedOffreCasting.IdentifiantMetierNavigation}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="15">
+                        <Button x:Name="SaveOffer" Click="SaveOffer_Click" Content="Sauvegarder" Margin="5" />
+                        <Button x:Name="DeleteOffer" Click="DeleteOffer_Click" Content="Supprimer" Margin="5" />
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
+            
+            
+            <!-- Ajouter les partenaires -->
+            <TextBlock Background="DarkGray"></TextBlock>
+            <Label Content="Ajouter une offre de casting" HorizontalAlignment="Center"></Label>
+            <StackPanel Orientation="Horizontal" Margin="10" >
+                <Label Content="Label"/>
+                <TextBox Width="100" x:Name="Libel" Text="{Binding OffreCastingToAdd.Libel}" TextChanged="Libel_TextChanged"></TextBox>
+                <Label Content="Référence"/>
+                <TextBox Width="100" x:Name="Reference" Text="{Binding OffreCastingToAdd.Reference}" TextChanged="Reference_TextChanged"></TextBox>
+                <Label Content="Localisation"/>
+                <TextBox Width="100" x:Name="Localisation" Text="{Binding OffreCastingToAdd.Localisation}" TextChanged="Localisation_TextChanged"></TextBox>
+                <Label Content="Date de parution"/>
+                <DatePicker SelectedDateFormat="short" Width="100" x:Name="ParutionDateTime" SelectedDate="{Binding OffreCastingToAdd.ParutionDateTime}" SelectedDateChanged="ParutionDateTime_SelectedDateChanged"></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Label Content="Date de début"/>
+                <DatePicker DisplayDateEnd="{Binding OffreCastingToAdd.OffreDateEnd}" SelectedDateFormat="short" Width="100" x:Name="OffreDateStart" SelectedDate="{Binding OffreCastingToAdd.OffreDateStart}" SelectedDateChanged="OffreDateStart_SelectedDateChanged"></DatePicker>
+                <Label Content="Date de fin"/>
+                <DatePicker DisplayDateStart="{Binding OffreCastingToAdd.OffreDateStart}" SelectedDateFormat="short" Width="100" x:Name="OffreDateEnd" SelectedDate="{Binding OffreCastingToAdd.OffreDateEnd}" SelectedDateChanged="OffreDateEnd_SelectedDateChanged"></DatePicker>
+                <Label Content="Type de contrat"></Label>
+                <ComboBox Width="100" ItemsSource="{Binding TypeContrats}" DisplayMemberPath="Libel" SelectedItem="{Binding OffreCastingToAdd.IdentifiantTypeContratNavigation}" SelectionChanged="TypeContrat_SelectionChanged"  x:Name="TypeContrat"></ComboBox>
+                <Label Content="Nom du client"></Label>
+                <ComboBox Width="100"  ItemsSource="{Binding Clients}" DisplayMemberPath="Nom" SelectedItem="{Binding OffreCastingToAdd.IdentifiantClientNavigation}" SelectionChanged="Client_SelectionChanged" x:Name="Client"></ComboBox>
+                </StackPanel>
+            <StackPanel>
+                <Label Content="Métier"></Label>
+                <ListBox Width="100" Height="100" ItemsSource="{Binding Metiers}" DisplayMemberPath="Libel" SelectedItem="{Binding OffreCastingToAdd.IdentifiantOffreCastingsNavigation}" SelectionChanged="Metier_SelectionChanged" x:Name="Metier" SelectionMode="Multiple"></ListBox>
+            </StackPanel>
+            <Button x:Name="AddOffer" Click="AddOffer_Click" Content="Ajouter l'offre" Width="200" Height="40" Margin="15" HorizontalAlignment="Left"></Button>
+        </StackPanel>
+    </Grid>
+
+</UserControl>

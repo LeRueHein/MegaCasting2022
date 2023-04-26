@@ -1,0 +1,24 @@
+﻿<Application x:Class="MegaCasting2022.Client.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MegaCasting2022.Client"
+             xmlns:converter="clr-namespace:MegaCasting2022.Client.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <!-- Theme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+                <ResourceDictionary Source="Styles\Style.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <converter:ObjectToVisibilityConverter 
+                x:Key="_SharedObjectToVisibilityConverter" />
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
