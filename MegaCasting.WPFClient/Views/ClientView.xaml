@@ -36,7 +36,8 @@
                      RowBackground="Transparent"
                      GridLinesVisibility="All"
                      HorizontalGridLinesBrush="Black"
-                     VerticalGridLinesBrush="Black">
+                     VerticalGridLinesBrush="Black"
+                     IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="100"/>
                             <DataGridTextColumn Header="Téléphone" Binding="{Binding Telephone}" Width="100"/>
@@ -83,9 +84,9 @@
                         <Label Content="Nom"/>
                         <TextBox Width="100" x:Name="Nom" Text="{Binding ClientToAdd.Nom}" TextChanged="Nom_TextChanged"></TextBox>
                         <Label Content="Téléphone"/>
-                        <TextBox Width="100" x:Name="Telephone" Text="{Binding ClientToAdd.Telephone}" TextChanged="Telephone_TextChanged"></TextBox>
+                        <TextBox Width="100" x:Name="Telephone" Text="{Binding ClientToAdd.Telephone}" TextChanged="Telephone_TextChanged"  PreviewTextInput="Telephone_PreviewTextInput"></TextBox>
                         <Label Content="Email"/>
-                        <TextBox Width="100" x:Name="Email" Text="{Binding ClientToAdd.Email}" TextChanged="Email_TextChanged"></TextBox>
+                        <TextBox Width="100" x:Name="Email" Text="{Binding ClientToAdd.Email}" TextChanged="Email_TextChanged" LostFocus="Email_LostFocus"></TextBox>
                         <Label Content="Ville"/>
                         <TextBox Width="100" x:Name="Ville" Text="{Binding ClientToAdd.Ville}" TextChanged="Ville_TextChanged"></TextBox>
                     </StackPanel>

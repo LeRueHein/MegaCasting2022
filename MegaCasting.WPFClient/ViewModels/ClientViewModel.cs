@@ -50,7 +50,7 @@ namespace MegaCasting.WPFClient.ViewModels
         {
             this.Entities.Clients.Add(this.ClientToAdd);
 
-            this.ClientToAdd = new Client();
+            //this.ClientToAdd = new Client();
             this.Entities.SaveChanges();
         }
 

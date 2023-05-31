@@ -33,7 +33,8 @@
                      RowBackground="Transparent"
                      GridLinesVisibility="All"
                      HorizontalGridLinesBrush="Black"
-                     VerticalGridLinesBrush="Black">
+                     VerticalGridLinesBrush="Black"
+                     IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Login" Binding="{Binding Login}" Width="200"/>
                     <DataGridTextColumn Header="Password" Binding="{Binding Password}" Width="200"/>

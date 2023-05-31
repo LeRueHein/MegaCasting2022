@@ -33,7 +33,8 @@
                      RowBackground="Transparent"
                      GridLinesVisibility="All"
                      HorizontalGridLinesBrush="Black"
-                     VerticalGridLinesBrush="Black">
+                     VerticalGridLinesBrush="Black"
+                     IsReadOnly="True">
                
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Label" Binding="{Binding Libel}" Width="SizeToHeader"/>
@@ -108,20 +109,24 @@
                 <Label Content="Date de parution"/>
                 <DatePicker SelectedDateFormat="short" Width="100" x:Name="ParutionDateTime" SelectedDate="{Binding OffreCastingToAdd.ParutionDateTime}" SelectedDateChanged="ParutionDateTime_SelectedDateChanged"></DatePicker>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10">
+            <StackPanel Orientation="Horizontal" Margin="10" >
                 <Label Content="Date de début"/>
-                <DatePicker DisplayDateEnd="{Binding OffreCastingToAdd.OffreDateEnd}" SelectedDateFormat="short" Width="100" x:Name="OffreDateStart" SelectedDate="{Binding OffreCastingToAdd.OffreDateStart}" SelectedDateChanged="OffreDateStart_SelectedDateChanged"></DatePicker>
+                <DatePicker VerticalAlignment="Top" DisplayDateEnd="{Binding OffreCastingToAdd.OffreDateEnd}" SelectedDateFormat="short" Width="100" x:Name="OffreDateStart" SelectedDate="{Binding OffreCastingToAdd.OffreDateStart}" SelectedDateChanged="OffreDateStart_SelectedDateChanged"></DatePicker>
                 <Label Content="Date de fin"/>
-                <DatePicker DisplayDateStart="{Binding OffreCastingToAdd.OffreDateStart}" SelectedDateFormat="short" Width="100" x:Name="OffreDateEnd" SelectedDate="{Binding OffreCastingToAdd.OffreDateEnd}" SelectedDateChanged="OffreDateEnd_SelectedDateChanged"></DatePicker>
+                <DatePicker VerticalAlignment="Top" DisplayDateStart="{Binding OffreCastingToAdd.OffreDateStart}" SelectedDateFormat="short" Width="100" x:Name="OffreDateEnd" SelectedDate="{Binding OffreCastingToAdd.OffreDateEnd}" SelectedDateChanged="OffreDateEnd_SelectedDateChanged"></DatePicker>
                 <Label Content="Type de contrat"></Label>
-                <ComboBox Width="100" ItemsSource="{Binding TypeContrats}" DisplayMemberPath="Libel" SelectedItem="{Binding OffreCastingToAdd.IdentifiantTypeContratNavigation}" SelectionChanged="TypeContrat_SelectionChanged"  x:Name="TypeContrat"></ComboBox>
+                <ComboBox VerticalAlignment="Top" Width="100" ItemsSource="{Binding TypeContrats}" DisplayMemberPath="Libel" SelectedItem="{Binding OffreCastingToAdd.IdentifiantTypeContratNavigation}" SelectionChanged="TypeContrat_SelectionChanged"  x:Name="TypeContrat"></ComboBox>
                 <Label Content="Nom du client"></Label>
-                <ComboBox Width="100"  ItemsSource="{Binding Clients}" DisplayMemberPath="Nom" SelectedItem="{Binding OffreCastingToAdd.IdentifiantClientNavigation}" SelectionChanged="Client_SelectionChanged" x:Name="Client"></ComboBox>
-                </StackPanel>
-            <StackPanel>
+                <ComboBox VerticalAlignment="Top" Width="100"  ItemsSource="{Binding Clients}" DisplayMemberPath="Nom" SelectedItem="{Binding OffreCastingToAdd.IdentifiantClientNavigation}" SelectionChanged="Client_SelectionChanged" x:Name="Client"></ComboBox>
+             
                 <Label Content="Métier"></Label>
-                <ListBox Width="100" Height="100" ItemsSource="{Binding Metiers}" DisplayMemberPath="Libel" SelectedItem="{Binding OffreCastingToAdd.IdentifiantOffreCastingsNavigation}" SelectionChanged="Metier_SelectionChanged" x:Name="Metier" SelectionMode="Multiple"></ListBox>
+                <ListBox  Width="100" Height="100" ItemsSource="{Binding Metiers}" DisplayMemberPath="Libel" SelectedItem="{Binding OffreCastingToAdd.IdentifiantOffreCastingsNavigation}" SelectionChanged="Metier_SelectionChanged" x:Name="Metier" SelectionMode="Multiple" ></ListBox>
+
             </StackPanel>
+         
+
+
+
             <Button x:Name="AddOffer" Click="AddOffer_Click" Content="Ajouter l'offre" Width="200" Height="40" Margin="15" HorizontalAlignment="Left"></Button>
         </StackPanel>
     </Grid>

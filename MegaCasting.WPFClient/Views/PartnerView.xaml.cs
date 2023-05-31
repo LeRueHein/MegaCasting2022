@@ -55,7 +55,15 @@ namespace MegaCasting.WPFClient.Views
         /// <summary>
         /// delete partner
         /// </summary>
-        private void DeleteDiffusionPartner_Click(object sender, RoutedEventArgs e) =>  ((PartnerViewModel)this.DataContext).Remove();
+        private void DeleteDiffusionPartner_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer cette offre ?", "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes) 
+            { 
+                ((PartnerViewModel)this.DataContext).Remove(); 
+            }
+            
+        }
 
         private void Login_TextChanged(object sender, TextChangedEventArgs e) => this.CheckAddButtonEnability();
 

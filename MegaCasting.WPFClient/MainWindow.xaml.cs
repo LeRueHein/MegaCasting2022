@@ -95,9 +95,18 @@ namespace MegaCasting.WPFClient
             this.DockPanelView.Children.Add(view);
         }
 
-        
+
+
         #endregion
 
+        private void MetroWindow_DpiChanged(object sender, DpiChangedEventArgs e)
+        {
 
+        }
+
+        private void MetroWindow_StylusButtonDown(object sender, StylusButtonEventArgs e)
+        {
+
+        }
     }
 }

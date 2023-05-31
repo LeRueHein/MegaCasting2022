@@ -65,7 +65,18 @@ namespace MegaCasting.WPFClient.Views
         /// <summary>
         /// delete client
         /// </summary>
-        private void DeleteOffer_Click(object sender, RoutedEventArgs e) => ((OfferViewModel)this.DataContext).Remove();
+        private void DeleteOffer_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer cette offre ?", "Confirmation", MessageBoxButton.YesNo);
+            if(result == MessageBoxResult.Yes) 
+            {
+
+                ((OfferViewModel)this.DataContext).Remove();
+
+            }
+            
+
+        }
 
 
         private void Libel_TextChanged(object sender, TextChangedEventArgs e) => this.CheckAddButtonEnability();
@@ -94,6 +105,7 @@ namespace MegaCasting.WPFClient.Views
                 && OffreDateEnd.SelectedDate != null
                 && TypeContrat.SelectedItem != null
                 && Client.SelectedItem != null
+                && Metier.SelectedItem != null
                 
                 );
         }
